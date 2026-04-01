@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.875rem;
+
+    /* Dark cyber theme — always dark */
+    --background: 0.09 0.022 250;
+    --foreground: 0.97 0 0;
+    --card: 0.12 0.025 248;
+    --card-foreground: 0.97 0 0;
+    --popover: 0.14 0.028 248;
+    --popover-foreground: 0.97 0 0;
+
+    /* Neon cyan accent */
+    --primary: 0.82 0.18 198;
+    --primary-foreground: 0.08 0.02 250;
+
+    --secondary: 0.16 0.03 248;
+    --secondary-foreground: 0.82 0.18 198;
+
+    --muted: 0.15 0.025 248;
+    --muted-foreground: 0.58 0.04 240;
+
+    --accent: 0.82 0.18 198;
+    --accent-foreground: 0.08 0.02 250;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.82 0.18 198 / 25%;
+    --input: 0.82 0.18 198 / 15%;
+    --ring: 0.82 0.18 198;
+
+    --chart-1: 0.82 0.18 198;
+    --chart-2: 0.78 0.17 80;
+    --chart-3: 0.72 0.19 48;
+    --chart-4: 0.627 0.265 303.9;
+    --chart-5: 0.645 0.246 16.439;
+
+    --sidebar: 0.1 0.022 250;
+    --sidebar-foreground: 0.97 0 0;
+    --sidebar-primary: 0.82 0.18 198;
+    --sidebar-primary-foreground: 0.08 0.02 250;
+    --sidebar-accent: 0.15 0.028 248;
+    --sidebar-accent-foreground: 0.97 0 0;
+    --sidebar-border: 0.82 0.18 198 / 20%;
+    --sidebar-ring: 0.82 0.18 198;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Manrope", system-ui, sans-serif;
+    background: linear-gradient(
+      135deg,
+      oklch(0.07 0.025 250) 0%,
+      oklch(0.1 0.03 240) 100%
+    );
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .text-cyan-glow {
+    color: oklch(0.82 0.18 198);
+    text-shadow: 0 0 20px oklch(0.82 0.18 198 / 60%), 0 0 40px
+      oklch(0.82 0.18 198 / 30%);
+  }
+
+  .border-cyan-glow {
+    border-color: oklch(0.82 0.18 198 / 35%);
+    box-shadow: 0 0 12px oklch(0.82 0.18 198 / 20%), inset 0 0 12px
+      oklch(0.82 0.18 198 / 5%);
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  .card-hover:hover {
+    border-color: oklch(0.82 0.18 198 / 70%) !important;
+    box-shadow: 0 0 24px oklch(0.82 0.18 198 / 35%), 0 8px 32px
+      oklch(0 0 0 / 50%) !important;
+    transform: translateY(-4px);
+  }
+
+  .neon-pulse {
+    animation: neonPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes neonPulse {
+    0%,
+    100% {
+      box-shadow: 0 0 8px oklch(0.82 0.18 198 / 40%);
+    }
+    50% {
+      box-shadow: 0 0 20px oklch(0.82 0.18 198 / 80%), 0 0 40px
+        oklch(0.82 0.18 198 / 40%);
+    }
+  }
+
+  .bg-cyber {
+    background: linear-gradient(
+      135deg,
+      oklch(0.07 0.025 250) 0%,
+      oklch(0.1 0.03 240) 100%
+    );
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      90deg,
+      oklch(0.07 0.025 250 / 95%) 40%,
+      oklch(0.07 0.025 250 / 60%) 70%,
+      transparent 100%
+    );
+  }
+
+  .hero-overlay-full {
+    background: linear-gradient(
+      180deg,
+      oklch(0.07 0.025 250 / 40%) 0%,
+      oklch(0.07 0.025 250 / 85%) 70%,
+      oklch(0.07 0.025 250) 100%
+    );
+  }
+}
